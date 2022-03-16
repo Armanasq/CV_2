@@ -1,0 +1,495 @@
+%-------------------------
+% Entry-level Resume in LaTeX
+% Version - v1.3
+% Last Edits - October 5, 2021
+% Author : Jayesh Sanwal
+% Reach out to me on LinkedIn(/in/jsanwal), with any suggestions, ideas, issues, etc.
+%------------------------
+
+%%-------------------------------------
+% Notes to the User here -
+% 1) Change " Author+an = {N=highlight}" in "Publications.bib", where N is the number at which your name appears
+% 2) Use "\vspace" wisely, that would change spacing, and is currently being used as a hacky fix
+% 3) Do not delete the fonts in the left side
+% 4) Use the "Rich Text" feature on Overleaf - On the top panel next to source. Makes it much easier for starters on LaTeX to use this template
+% 5) Do NOT use periods at the end of bullet points, the sample (ipsum) text might have it
+% 6) Use "maxbibnames" on this file to change the maximum number of authors on the paper (Credits: Dr. Natasha Krell) - Default is 3, but change line 92 to add authors
+
+%%-------------------------------------
+% Changes from last version (v1.3, October 5, 2021) -
+% 1) Summary statement removed, replaced with 4 keywords on top and Impact statement
+
+% Changes from last version (v1.2, August 23, 2021) -
+% 1) Changes in the Technical Skills section - renamed to just Skills
+% 2) Changed the font size for the name
+% 3) Education to the top
+%%-------------------------------------
+
+
+%%-------------------------------------
+% Changes to be made in the next version -
+% 1) Shift to Class file, make changes here
+% 2) Use a fonts folder
+% 3) Incorporate Leadership & volunteering together
+% 4) Remove \vspace based 'hacky' fixes
+%%-------------------------------------
+
+
+\documentclass[a4,10pt]{article}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  STARTING HERE, DO NOT TOUCH ANYTHING 
+%%%%%%% --------------------------------------------------------------------------------------
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\hypersetup{colorlinks=true,urlcolor=black}
+\usepackage[11pt]{moresize}
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage[inline]{enumitem}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{anyfontsize}
+\usepackage{fontspec}
+\usepackage{academicons}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{indentfirst}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%%% Set Margins
+\usepackage[margin=1cm, top=1cm]{geometry}
+
+%%%% Set Fonts
+\setmainfont[
+BoldFont=EBGaramond-Bold.ttf, %SourceSansPro-Bold.otf
+ItalicFont=EBGaramond-Italic.ttf
+]{EBGaramond-Regular.ttf}
+\setsansfont{EBGaramond-SemiBold.ttf}
+
+%%%% Set Page
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%%%% Set URL Style
+\urlstyle{same}
+
+%%%% Set Indentation
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%%%% Set Secondary Color
+\definecolor{UI_blue}{RGB}{215,50,50}
+\definecolor{blk}{RGB}{0,0,0}
+%%%% Define New Commands
+\usepackage[style=nature, maxbibnames=3]{biblatex}
+\addbibresource{Publications.bib}
+
+%%%% Bold Name in Publications
+\renewcommand*{\mkbibnamegiven}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+\ifitemannotation{highlight}
+{\textbf{#1}}
+{#1}}
+
+%%%% Set Sections formatting
+\newcommand\ruleafter[1]{#1~{\color{blk}\hrulefill}} % a trick to put the line with <before> parameter in \titleformat
+
+
+\titleformat{\section}      % Customise the \section command 
+  {\large\bfseries\scshape\raggedright\color{UI_blue} \vspace{-0.5}} % Make the \section headers large (\Large),
+                               % small capitals (\scshape) and left aligned (\raggedright)
+  {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
+  {\ruleafter }                           % Can be used to insert code before the heading
+
+
+%%%% Set Subtext Formatting
+\newcommand{\subtext}[1]{
+#1\par\vspace{-0.2cm}}
+
+\newcommand{\subtextit}[1]{\vspace{0.15cm}
+ \textit{ #1 \vspace{-0.2cm}} }
+ %%%
+\newcommand{\cps}{{\color{red} \quad \textbf{|}\quad}}
+\newcommand{\cpshalf}{{\color{red} \hspace{0.2em}\textbf{|}\hspace{0.2em}}}
+%%%% Set Item Spacing
+\setlist[itemize]{align=parleft,left=10pt..2em}
+
+%%%% New Itemize "Zitemize" Formatting - tighter spacing than itemize
+\newenvironment{zitemize}{
+\begin{itemize}\itemsep0pt \parskip0pt \parsep1pt}
+{\end{itemize}\vspace{-0.5cm}}
+
+
+%%%% Define Skills Bold Formatting
+\newcommand{\hskills}[1]{
+\textbf{\bfseries #1} }
+
+%%%% Set Subsection formatting
+\titleformat{\subsection}{\vspace{-0.1cm} 
+\bfseries \fontsize{11pt}{2cm}}{}{0em}{}[\vspace{-0.2cm}]
+%%%%%%
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  END OF "DO NOT TOUCH" REGION
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%% --------------------------------------------------------------------------------------
+\rfoot{{\fontfamily{ttf} \selectfont \footnotesize \emph{ \thepage \hspace{1pt} of \pageref{LastPage}}}}
+\begin{document}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  HEADER
+%%%%%%% --------------------------------------------------------------------------------------
+\begin{center}
+    \begin{minipage}[b]{0.34\textwidth}
+            \normalsize (+98)-919-6097597 \\
+            \small Innovation Center, \\ Student’s Scientific Research Center, \\ Vesal St., Tehran, Iran
+    \end{minipage}% 
+    \begin{minipage}[b]{0.34\textwidth}
+            \centering
+            {\huge Arman \Huge \textbf{Asgharpoor}} \\ %
+            \vspace{0.09cm}
+            \large \href{mailto:A.Asgharpoor@ut.ac.ir}{A.Asgharpoor@ut.ac.ir} \\\vspace{0.09cm}
+            {\color{UI_blue} \large{\textbf{Machine Learning Researcher}}} \\
+    \end{minipage}% 
+    \begin{minipage}[b]{0.31\textwidth}
+            \flushright \large  %Willing to Relocate
+            %{\href{https://www.linkedin.com/in/link/}{linkedin.com/in/yourlink} } \\
+            %\href{https://Add_your_portfolio_here_}{Portfolio}
+            {\href{https://linkedin.com/in/asgharpoor/}{ \footnotesize linkedin.com/in/asgharpoor \faLinkedin\ }} \\
+            {\href{https://github.com/Armanasq}{ \footnotesize github.com/Armanasq \faGithubSquare\ }}\\
+            {\href{https://www.researchgate.net/profile/Arman_Asgharpoor}{ \footnotesize researchgate.net/profile/Arman\_Asgharpoor \aiResearchGateSquare\ }}\\
+            {\href{http://armanasq.github.io/}{\footnotesize armanasq.github.io \faGlobe\ }}
+            %{\href{https://fuzzylogic.ut.ac.ir/en/page/7122/arman-asgharpoor/}{\faGlobe\ \footnotesize fuzzylogic.ut.ac.ir/en/page/7122/arman-asgharpoor}}
+    \end{minipage} 
+    \vspace{-0.5cm} 
+\end{center}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Research Interest
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Research Interest }
+\vspace{-0.3cm}
+%    \begin{minipage}[b]{0.35\textwidth} \textbullet \hspace{0.1cm} \textbf{Artificial Intelligence} \end{minipage}\begin{minipage}[b]{0.365\textwidth} \textbullet \hspace{0.1cm} \textbf{Estimation \&  Sensor Fusion}  \end{minipage}\begin{minipage}[b]{0.3\textwidth}  \textbullet \hspace{0.1cm} \textbf{Space Robotics \& Space Exploration} \end{minipage}
+I am a machine learning researcher interested in space, focused on the intersection of AI and estimation theory for deep Space exploration missions at the \textbf{University of Tehran Space Lab} and supervised by Dr \href{https://scholar.google.com/citations?user=R86XDtUAAAAJ&hl=en}{\textbf{M.H. Sabour}}. Also, I am a referee of the Research Council at the Students’ Scientific Research Center (SSRC), supervised by Professor \href{https://scholar.google.com/citations?user=Dn2PoFAAAAAJ&hl=en}{\textbf{P. Pasalar}} and a member of the Universal Scientific Education and Research Network (USERN) supervised by Professor \href{https://scholar.google.com/citations?user=aqiMhRgAAAAJ&hl=en}{\textbf{Nima Rezaei}}.
+\vspace{-0.4cm}
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  PUBLICATIONS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Publications} 
+\vspace{-0.3cm}
+
+\renewcommand\refname{\vskip -4.5em}
+\nocite{*}
+\printbibliography[heading=none]
+\vspace{-0.7 cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  EDUCATION
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Education }  \vspace{-0.3cm}
+
+\subsection*{M.Sc. Space Engineering {\hfill University of Tehran}} 
+    \begin{zitemize}
+        \item \emph{Ranked $1^{st}$ universities in Iran based on \href{https://www.usnews.com/education/best-global-universities/iran}{\textbf{UsNews}} \hfill 2019-2022(exp)}
+        \item \emph{GPA: 17.81/20 } 
+        \cpshalf  \emph{Rank: $1^{st}$ in class}
+        \item \emph{\textbf{Thesis:} An End to End Deep Learning Framework for inertial Attitude Estimation}
+        \item \emph{\textbf{Award:} Full Tuition Fee Waiver}
+    \end{zitemize}
+\vspace{-0.15cm}
+\subsection*{Healthcare MBA {\hfill Academic Center for Education, Culture and Research)}} 
+    \begin{zitemize}
+        \item \emph{\textbf{Award:} Partial Tuition Fee Waiver} \cpshalf \emph{GPA: 98.00/100} \hfill 2019-2020
+    \end{zitemize}
+\vspace{-0.15cm}
+\subsection*{B. Eng. Avionics {\hfill Aviation Industry Training Center}} 
+    \begin{zitemize}
+        \item \emph{GPA: 17.60/20} \hfill 2016-2019
+    \end{zitemize}
+\vspace{-0.15cm}
+\subsection*{A.E.T. Aircraft Avionics {\hfill Civil Aviation Technology College}}
+ \begin{zitemize}
+        \item \emph{\textbf{Award:} Full Tuition Fee Waiver}\hfill 2013-2016
+ \end{zitemize}
+\vspace{-0.3cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Research Experience
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Research Experience} \vspace{-0.3cm}
+
+\subsection*{Former of Fuzzy Logic Lab  \hfill  {USERN Interest Group}}
+    \begin{zitemize}
+        \item Aimed to do research on Multi-Criteria Decision Making \hfill \emph{2020}
+    \end{zitemize}
+\vspace{-0.15cm}
+
+\subsection*{ShadX Team Leader \hfill AIAA Aircraft Design Competition}
+    \begin{zitemize}
+        \item {Graduate Team Aircraft Design, Aimed to design a Modern Regional Jet Family \hfill \emph{2020}}
+    \end{zitemize}
+\vspace{-0.15cm}
+
+\subsection*{Referee of Research Council's  \hfill Students' Scientific Research Center } 
+    \begin{zitemize}
+        \item  {Evaluating Research Proposals \hfill \emph{2019-Present}}
+    \end{zitemize}
+\vspace{-0.15cm}
+
+\subsection*{Design and Fabrication of 3-Axis CNC Milling Machine \hfill Aviation Industry Training Center}
+    \begin{zitemize}
+        \item  {Use Embedded Systems to Control CNC} 
+        \cpshalf   {Use SolidWorks and Inventor to Design the Structure} \hfill \emph{2019-2020}
+    \end{zitemize}
+\vspace{-0.15cm}
+
+\subsection*{Design and Implication of Scientific-Exploration CanSat \hfill Universiy of Tehran}
+    \begin{zitemize}
+        \item  {Use Raspberry Pi for Computer Vision and Pattern Detection} \hfill \emph{2019-2020}
+        \item  {Sensor Fusion for Estimating Environmental Parameters} \cpshalf  {INS-GPS Integration for Navigation Parameter Estimation}
+    \end{zitemize}
+\vspace{-0.15cm}
+
+\subsection*{Research Assistance { \hfill Aviation Industry Training Center} } 
+Supervise undergraduate students working on the research project by: \hfill \normalsize\normalfont \emph{2018-2020}
+\vspace{-0.3cm}
+
+    \begin{zitemize}
+         \item  {Conduct literature reviews, and collect, manage, and analyze data}
+         \item  {Provide ready access to all experimental data for the faculty researcher and/or supervisor}
+         \item  {Acting as liaison/mediator between the undergraduate students and the faculty researcher}
+         \item  {Attend project meetings and seminars or other meetings as necessary}
+    \end{zitemize}
+\vspace{-0.15cm}
+    
+\subsection*{Thesis Advisor {\hfill Aviation Industry Training Center}}
+    \begin{zitemize}
+        \item  {Design and Implementation of A 3 Axis CNC Machine}\hfill \normalsize\normalfont \emph{2018-2020}
+        \item  {Design and Implementation of A CNC Hot Wire}
+        \item  {Design and Implementation of Pulse Circuits Training Board}
+        \item  {Design, Simulate and Build an Aircraft Fire Extinguishing Systems}
+        \item  {Design and Implementation of Retractable Landing Gear}
+    \end{zitemize}
+\vspace{-0.15cm}
+
+\subsection*{Wireless Power Transmission (WPT) for Medical Purpose \hfill 2018-2019}
+    \begin{zitemize}
+        \item  {Use ANSYS, ADS, CST, and Altuim Designer to Design and Analyse the Circuit }
+    \end{zitemize}
+\vspace{-0.2cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  SKILLS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Skills} \vspace{-0.3cm}
+
+\begin{tabular}{p{12em} p{48em}}
+\hskills{Programming Languages} & MATLAB \cpshalf    Simulink  \cpshalf  Python \cpshalf   C++   \cpshalf   \LaTeX  \\
+\hskills{Frameworks \ \& \ Libraries} & Matplotplib \cpshalf Numpy \cpshalf Pandas\cpshalf TensorFlow\cpshalf Keras \\
+\hskills{CAD-CAM} & CATIA \cpshalf  SolidWorks \cpshalf Inventor \cpshalf Proteus \cpshalf Altium Designer \cpshalf AutoCAD  \\
+\hskills{CAE} & CST \cpshalf ADS  \cpshalf  ANSYS Workbench \cpshalf  COMSOL \\
+\hskills{Soft Skills} & Time Management, Punctuality, Extremely Coordinated and Goal-Directed \\
+\hskills{                     } & Project Management, Teamwork, Conflict Resolution  \\
+\hskills{                     } & Multi-Tasking, Flexibility and Adaptation  \cpshalf Problem Solving, Critical Thinking 
+\end{tabular}
+\vspace{-0.7cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Lab Experience
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Lab Experience} \vspace{-0.2cm}
+
+\subsection*{Space Lab \hfill University of Tehran} 
+\begin{zitemize}
+        \item Working with 3-DoF Experimental Test-Bed for Integrated Attitude Dynamics and Control \hfill \emph{2019-present}
+        \item Using LabView and ARM Development Boards
+    \end{zitemize}
+     \vspace{-0.15cm}
+\subsection*{Fuzzy Logic Lab}
+Working on Fuzzy Inference Systems project such as fuzzy tuned complementary filter for IMU based attitude estimation  \hfill \emph{2019-present}
+\vspace{-0.2cm}
+\begin{zitemize}
+        \item  \textbf{Websites:} \href{https://fuzzylogic.ut.ac.ir/en/page/7122/arman-asgharpoor}{University of Tehran Fuzzy Logic Lab} \cpshalf  \href{https://usern.tums.ac.ir/Group/Info/FLLIG}{USERN Fuzzy Logic Lab Interest Group}\cpshalf  \href{https://www.researchgate.net/lab/Fuzzy-Lab-Mohammad-H-Sabour}{ResearchGate} 
+    \end{zitemize}
+     \vspace{-0.15cm}
+\subsection*{Avionics Lab\hfill Aviation Industry Training Center}
+\begin{zitemize}
+        \item Working with Aircraft Instrument Panel and different flight instruments (Altimeter, Airspeed Indicator,\hfill \emph{2018-2020} \\ 
+        Heading Indicator, Attitude Indicator, Turn Coordinator, and Vertical Speed Indicator).
+    \end{zitemize}
+     \vspace{-0.15cm}
+\subsection*{Electronics Lab\hfill Aviation Industry Training Center}
+\begin{zitemize}
+        \item Designing and assembling PCBs and working with different electronic measuring and test equipment \hfill 2018-2020 \\ (Function Generator, Oscilloscope, LCR meter, and etc.)
+    \end{zitemize}
+     \vspace{-0.15cm}
+\subsection*{Aircraft Instruments \hfill Civil Aviation Technology College}
+\begin{zitemize}
+        \item Improve student learning performance by redesigning the lab and inventory management \hfill \emph{2015-2016}
+        \item Repairing different flight instruments
+    \end{zitemize}
+\vspace{-0.2cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Internships
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Internships} \vspace{-0.2cm}
+\subsection*{Avionics \normalsize \normalfont @ IranAir, Civil Aviation Technology College, \& Aviation Industry Training Center}
+\begin{zitemize}
+        \item Using \textbf{Airbus A-320} Aircraft Maintenance Manual (\textbf{AMM}) and Aircraft Illustrated Parts Catalog (\textbf{IPC}) for checking and repairing different parts of aircraft - Engine and Avionics Instruments
+    \end{zitemize}
+ \vspace{-0.2cm}
+ 
+ 
+ \section{Teaching Experience} 
+
+\vspace{-0.2 cm}
+\subsection*{Instructor {\hfill Aviation Industry Training Center}}
+    \begin{zitemize}
+            \item \textbf{Internship Instructor:} Avionics Technology (B.Eng.) and Aircraft Maintenance (B.Eng.) \hfill\emph{2019-2020}
+        \item \textbf{Internship Instructor:} Avionics Technology (A.E.T) and Aircraft Maintenance (A.E.T) \hfill\emph{2018-2020}
+        \item \textbf{Lab Instructor:} Electronic 1, Electronic 2, Electronic 3, Electronic Circuits 1, Electronic Circuits 2, Microprocessors\hfill\emph{2018-2020}
+        \item \textbf{Lab Instructor:} Aircraft Instruments\hfill \emph{2018-2020}
+    \end{zitemize}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  WORK EXPERIENCE
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Work Experience} \vspace{-0.2cm}
+\subsection*{Martial Arts Instructor {\hfill Iran martial arts federation}}
+\begin{zitemize}
+        \item Black Belt Dan II \hfill \emph{2015-Present}
+    \end{zitemize}
+\vspace{-0.2cm}
+\subsection*{Manager {\hfill Arman Imen Passargad}}
+ \hfill \emph{2013-Present}
+\vspace{-0.8cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Executive activities
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Executive activities} 
+ \vspace{-0.2cm}
+\subsection*{Universal Scientific Education and Research Network \hfill 2021}
+    \begin{zitemize}
+        \item {\large{$\mathbf{ 6^{th}}$}} International USERN Congress ${\&}$ Prize Awarding Festival \cpshalf Lab Techniques School Executive Team \cpshalf MTalk Executive Team 
+        \item \textbf{The Core Member of:}\emph { R${\&}$D \cpshalf Publicity\cpshalf Media\cpshalf IT }
+    \end{zitemize}
+    \vspace{-0.1cm}
+    
+\subsection*{Tehran University of Medical Sciences \hfill 2014-2021}
+    \begin{zitemize}
+        \item {{ {\large{$\mathbf{ 4^{th}}$}} Student Education Development Festival \cpshalf   {\large{$\mathbf{ 20^{th}}$}}, {\large{$\mathbf{ 21^{st}}$}}, {\large{$\mathbf{ 23^{rd}}$}} Conference of Annual General Meeting}}
+    \end{zitemize}
+  \vspace{-0.1cm}  
+  
+\subsection*{University of Tehran \hfill 2019-2020}
+    \begin{zitemize}
+        \item {{Former of Cultural Society KARA \cpshalf Organizer of Climate Change Conference}}
+    \end{zitemize}
+\vspace{-0.1cm}
+
+\subsection*{World Astronomy Week \hfill 2017}
+    \begin{zitemize}
+        \item {{ Night Sky Institute}}
+    \end{zitemize}
+    \vspace{-0.1cm}
+    
+\subsection*{Civil Aviation Technology College \hfill 2012-2015}
+    \begin{zitemize}
+        \item {{Organizer of WaterRocket Competition \cpshalf Road ${\&}$ Urban Development ${\&}$ The Related Industries Exhibition  }}
+        \item {{{\large{$\mathbf{ 3^{rd}}$}},{\large{$\mathbf{ 4^{th}}$}}, {\large{$\mathbf{ 5^{th}}$}} International Aviation ${\&}$ Space Industries Exhibition of Iran}}
+    \end{zitemize}
+\vspace{1cm}
+\\ \\ \\
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  VOLUNTEER EXPERIENCE
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Volunteer Experience} \vspace{-0.3cm}
+
+ \vspace{-0.1cm}
+ \subsection*{Executive Member \hfill 2021} 
+    \begin{zitemize}
+             \item \emph{The {\large{$\mathbf{ 7^{th}}$}} International Festival of Paintings for Pediatric Patients,} {USERN Health And Art}
+    \end{zitemize}
+\vspace{-0.2 cm}
+
+ \subsection*{Mentor \hfill 2020-Present} 
+     \begin{zitemize}
+             \item \emph{Space Generation Advisory Council}
+     \end{zitemize}
+\vspace{-0.2 cm}
+
+ \subsection*{Pest Control \hfill 2013-Present} 
+     \begin{zitemize}
+             \item \emph{ Kahrizak Nursing Home \cpshalf Sarai Ehsan Social Victims Center\cpshalf Vardavard Welfare}
+     \end{zitemize}
+ \vspace{-0.3cm}
+
+
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Membership & Affiliations
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Membership \& Affiliations} \vspace{-0.2cm}
+ {Royal Aeronautical Society \cpshalf \ Space Generation Advisory Council \cpshalf \ Space ${\&}$ Satellite Professionals International \cpshalf \ American Physical Society} \\ {Institute of Mathematical Statistics  \cpshalf \ Royal Statistical Society \cpshalf \ Astronomers Without Borders \cpshalf \ Educational Development Center, TUMS} \\
+ {University of Tehran Chess Club}
+ \vspace{-0.4cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  Certificates
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Certificates} \vspace{-0.3cm}
+
+    \begin{tabular}{p{15em} p{48em}}
+        \hskills{USERN} & {Scientific Writing\cpshalf Submission ${\&}$ Peer Reviewing\cpshalf Data Analysis in SPSS\cpshalf Systematic Review\cpshalf Meta-analysis} \\
+        \hskills{University of Toronto (Coursera)} & {State Estimation and Localization for Self-Driving Cars} \\
+        \hskills{DeepLearning.AI (Coursera) } & {Neural Networks and Deep Learning} \\
+        \hskills{NSPE } & {Bridging the Gap to Leadership} \\
+        \hskills{MathWorks} & {MATLAB Onramp}
+    \end{tabular} 
+\vspace{-0.6cm}
+%%%%%%% --------------------------------------------------------------------------------------
+%%%%%%%  AWARDS & HONORS
+%%%%%%% --------------------------------------------------------------------------------------
+\section{Awards \& Honors} \vspace{-0.2cm}
+
+
+\subsection*{USERN Miniature Talk}
+  \begin{zitemize}
+             \item Appreciated Presenter \hfill \textbf{2021}
+     \end{zitemize}
+     \vspace{-0.2cm}
+\subsection*{Iran Martial Arts Federation}
+  \begin{zitemize}
+             \item Gold Medalist \hfill \textbf{2011, 2012, 2018, 2019}
+             \item Silver Medalist \hfill \textbf{2015}
+             \item Bronze Medalist \hfill \textbf{2016, 2019}
+     \end{zitemize}
+     \vspace{-0.2cm}
+\subsection*{Nearu Martial Arts,\hfill \textbf{2019}}
+  \begin{zitemize}
+             \item Black Belt Dan II
+     \end{zitemize}
+\vspace{-0.2cm}
+\section{Hobbies}
+ \vspace{-0.2cm}
+{Mentoring, Astrophotography, Reading Book, Playing Chess, Going to Gym, Traveling}
+\vspace{-0.2cm}
+%%%%%%% ---------------------------- END DOC HERE ---------------------------- %%%%%%% 
+\end{document}
